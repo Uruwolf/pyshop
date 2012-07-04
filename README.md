@@ -15,6 +15,7 @@ Add the template dirs:
 	'products/templates',
 	'cart/templates',
 ```
+The best place for this would be in local_settings.py
 
 Add the needed packages to the installed apps list:
 ```python
@@ -30,7 +31,7 @@ Add the following entries to `urls.py`
 	(r'^cart/', include('cart.urls', namepsace='cart', app_name='cart')), #This can be removed if you are not using the cart system.
 ```
 
-If you are using the code as-is then you do not need to add the apps or update the urls.o
+If you are using the code as-is then you do not need to add the apps or update the urls.
 
 You will also need to add your database connection info. I would recomend creating a local_settings.py that looks like this:
 
