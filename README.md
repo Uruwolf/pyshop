@@ -12,7 +12,7 @@ Using
 
 Make sure that `/products/templates` has been added to the list of template dirs and add `django.contrib.humanize` and `products` to the list of installed apps.
 
-Then all you need to do is run `python manage.py syncdb` to make django add the needed database tables.
+`urls.py` will also have to be updated. Simply add `(r'^', include('products.urls', namespace='products', app_name='products')),`. By default this makes the index page the list of catergories but this can be easily changed. Just change the regex to something like `r'^shop'` or whatever you want to use.
 
 You will also need to add your database connection info. I would recomend creating a local_settings.py that looks like this:
 
@@ -34,6 +34,8 @@ DATABASES = {
 ```
 
 settings.py is already set up to handle local settings.
+
+Then all you need to do is run `python manage.py syncdb` to make django add the needed database tables.
 
 Sample data
 -----------
