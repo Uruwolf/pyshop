@@ -13,3 +13,24 @@ Using
 Make sure that '/products/templates' has been added to the list of template dirs and add 'django.contrib.humanize' and 'products' to the list of installed apps.
 
 Then all you need to do is run 'python manage.py syncdb' to make django add the needed database tables.
+
+You will also need to add your database connection info. I would recomend creating a local_settings.py that looks like this:
+
+'''
+TEMPLATE_DIRS = (
+        '/location/of/manage.py/shopping/products/templates'
+)
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'my_database',
+        'USER': 'my_user',
+        'PASSWORD': 'my_password',
+        'HOST': 'my_server',
+        'PORT': '',
+    }
+}
+'''
+
+settings.py is already set up to handle local settings.
