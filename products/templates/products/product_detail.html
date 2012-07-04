@@ -22,4 +22,7 @@ Copyright (c) Steve "Uru" West 2012
 
 <a href="{% url products:catergory_detail object.catergory.id %}">{{ object.catergory.name }}</a>
 <br /><br />
-Cost: {{ object.price|intcomma }}
+Cost: {{ object.price|intcomma }}<br />
+Stock: {{ object.stock }}
+<br /><br />
+{{ object.description }}
