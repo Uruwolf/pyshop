@@ -14,7 +14,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with pyShop.  If not, see <http://www.gnu.org/licenses/>.
 
-Copyright (c) Steve "Uru" West 2012
+Copyright (c) Steve "Uru" West 2012 <uruwolf@gmail.com>
 '''
 
 from django.conf.urls.defaults import *
