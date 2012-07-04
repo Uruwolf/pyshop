@@ -24,15 +24,17 @@ Add the needed packages to the installed apps list:
 	'cart', #This one is optional if you don't want to have shopping cart functionality
 ```
 
-`urls.py` will also have to be updated. Simply add `(r'^', include('products.urls', namespace='products', app_name='products')),`. By default this makes the index page the list of catergories but this can be easily changed. Just change the regex to something like `r'^shop'` or whatever you want to use.
+Add the following entries to `urls.py`
+```python
+	(r'^', include('products.urls', namespace='products', app_name='products')), #The regex can be whatever you like.
+	(r'^cart/', include('cart.urls', namepsace='cart', app_name='cart')), #This can be removed if you are not using the cart system.
+```
+
+If you are using the code as-is then you do not need to add the apps or update the urls.o
 
 You will also need to add your database connection info. I would recomend creating a local_settings.py that looks like this:
 
 ```python
-TEMPLATE_DIRS = (
-        '/location/of/manage.py/shopping/products/templates'
-)
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
