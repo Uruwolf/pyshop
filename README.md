@@ -10,9 +10,9 @@ Other than that feel free to use and modify.
 Using
 -----
 
-Make sure that '/products/templates' has been added to the list of template dirs and add 'django.contrib.humanize' and 'products' to the list of installed apps.
+Make sure that `/products/templates` has been added to the list of template dirs and add `django.contrib.humanize` and `products` to the list of installed apps.
 
-Then all you need to do is run 'python manage.py syncdb' to make django add the needed database tables.
+Then all you need to do is run `python manage.py syncdb` to make django add the needed database tables.
 
 You will also need to add your database connection info. I would recomend creating a local_settings.py that looks like this:
 
@@ -34,3 +34,8 @@ DATABASES = {
 ```
 
 settings.py is already set up to handle local settings.
+
+Sample data
+-----------
+
+There is also a set of sample data that can be loaded using `python manage.py loaddata sample_data.json` after you have synced the databse.
