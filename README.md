@@ -16,7 +16,7 @@ Then all you need to do is run 'python manage.py syncdb' to make django add the 
 
 You will also need to add your database connection info. I would recomend creating a local_settings.py that looks like this:
 
-'''
+```
 TEMPLATE_DIRS = (
         '/location/of/manage.py/shopping/products/templates'
 )
