@@ -14,7 +14,7 @@ Add the template dirs:
 ```python
 	'products/templates',
 	'cart/templates',
-``
+```
 
 Add the needed packages to the installed apps list:
 ```python
