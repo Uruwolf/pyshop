@@ -1,0 +1,8 @@
+{% if object_list %}
+	<ul>
+	{% for catergory in object_list %}
+		<li><a href="/{{ catergory.id }}">{{ catergory.name }}</a> - {{ catergory.product_set.all|length }}</li>
+	{% endfor %}
+{% else %}
+There's nothing here :(
+{% endif %}
