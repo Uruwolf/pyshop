@@ -31,6 +31,6 @@ DATABASES = {
         'PORT': '',
     }
 }
-'''
+```
 
 settings.py is already set up to handle local settings.
