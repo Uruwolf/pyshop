@@ -10,7 +10,19 @@ Other than that feel free to use and modify.
 Using
 -----
 
-Make sure that `/products/templates` has been added to the list of template dirs and add `django.contrib.humanize` and `products` to the list of installed apps.
+Add the template dirs:
+```python
+	'products/templates',
+	'cart/templates',
+``
+
+Add the needed packages to the installed apps list:
+```python
+	'django.contrib.humanize', #This can be removed if you use your own templates
+	'global',
+	'products',
+	'cart', #This one is optional if you don't want to have shopping cart functionality
+```
 
 `urls.py` will also have to be updated. Simply add `(r'^', include('products.urls', namespace='products', app_name='products')),`. By default this makes the index page the list of catergories but this can be easily changed. Just change the regex to something like `r'^shop'` or whatever you want to use.
 
