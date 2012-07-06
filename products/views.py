@@ -17,7 +17,3 @@ along with pyShop.  If not, see <http://www.gnu.org/licenses/>.
 Copyright (c) Steve "Uru" West 2012 <uruwolf@gmail.com>
 '''
 
-from django.http import HttpResponse
-
-def index(request):
-	return HttpResponse('ZOMG! This is the index page!')
