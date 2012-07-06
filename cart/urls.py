@@ -20,5 +20,9 @@ Copyright (c) Steve "Uru" West 2012
 from django.conf.urls.defaults import *
 from products.models import Catergory, Product
 
-urlpatterns = patterns('',
+urlpatterns = patterns('cart.views',
+	(r'^$', 'index'),
+	(r'^add/(?P<item>\d+)$', 'add'),
+	(r'^remove/(?P<item>\d+)$', 'remove'),
+	(r'^quantity/(?P<item>\d+)/(?P<count>\d+)$', 'quantity'),
 )
