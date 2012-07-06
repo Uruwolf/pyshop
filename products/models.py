@@ -20,12 +20,21 @@ Copyright (c) Steve "Uru" West 2012 <uruwolf@gmail.com>
 from django.db import models
 
 class Catergory(models.Model):
+	'''Contains the model for product catergories.
+	Currently only contains a name'''
 	name = models.CharField(max_length=100)
 
 	def __unicode__(self):
+		'''Returns the name of this catergory'''
 		return self.name
 
 class Product(models.Model):
+	'''Contains the model for products.
+	
+	name = The name of the product
+	description = The description, can contain html
+	price = A decimal number to two paces to represent the price
+	stock = An indication of how many units are available.'''
 	catergory = models.ForeignKey(Catergory)
 	name = models.CharField(max_length=200)
 	description = models.TextField()
@@ -33,4 +42,5 @@ class Product(models.Model):
 	stock = models.BigIntegerField(default=0)
 
 	def __unicode__(self):
+		''''Returns the name of this catergory'''
 		return self.name

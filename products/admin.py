@@ -20,9 +20,14 @@ Copyright (c) Steve "Uru" West 2012 <uruwolf@gmail.com>
 from products.models import Catergory, Product
 from django.contrib import admin
 
+#Catergories get the generic admin treatment
 admin.site.register(Catergory)
 
 class ProductAdmin(admin.ModelAdmin):
+	'''Contains the admin panel settings for product objects
+	Currently set to display the name and catergory,
+	be filterable by catergory
+	and searchable via name and description.'''
 	list_display = ('name', 'catergory')
 	list_filter = ['catergory']
 	search_fields = ['name', 'description']
