@@ -32,7 +32,7 @@ product_set = {
 
 urlpatterns = patterns('',
 	#Routing information to get to the list of catergories.
-	url((r'^$', 'django.views.generic.list_detail.object_list', catergory_set), name='catergory_list'),
+	url(r'^$', 'django.views.generic.list_detail.object_list', catergory_set, name='catergory_list'),
 
 	#Contains routing information for the catergory detail view (Basically a list of products)
 	url(r'^(?P<object_id>\d+)/$', 'django.views.generic.list_detail.object_detail', catergory_set, name='catergory_detail'),
