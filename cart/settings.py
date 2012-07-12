@@ -15,21 +15,10 @@ You should have received a copy of the GNU General Public License
 along with pyShop.  If not, see <http://www.gnu.org/licenses/>.
 
 Copyright (c) Steve "Uru" West 2012
+
+This file contains some global settings for the cart system
 '''
 
+#Contains the value that will be used to reference the cart inside the session.
+CART_SESSION_NAME = 'cart_'
 
-from django.http import HttpResponse
-from settings import CART_SESSION_NAME
-
-def index(request):
-	return HttpResponse("Coming soon")
-
-def add(request, item):
-	helper.addItemToCart(item)
-	return HttpResponse("Item will be added: "+item)
-
-def remove(request, item):
-	return HttpResponse("Item will be removed: "+item)
-
-def quantity(request, item, count):
-	return HttpResponse("Item count will be updated: "+item+"*"+count)
