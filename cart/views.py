@@ -50,9 +50,6 @@ def add(request, item):
 def remove(request, item):
 	return HttpResponse("Item will be removed: "+item)
 
-def quantity(request, item, count):
-	return HttpResponse("Item count will be updated: "+item+"*"+count)
-
 def ensureSessionCart(session):
 	if CART_SESSION_NAME not in session:
 		session[CART_SESSION_NAME] = dict()
