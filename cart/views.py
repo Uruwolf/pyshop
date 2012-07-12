@@ -18,18 +18,25 @@ Copyright (c) Steve "Uru" West 2012
 '''
 
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.core.urlresolvers import reverse
 from settings import CART_SESSION_NAME
 
 def index(request):
 	return HttpResponse("Coming soon")
 
 def add(request, item):
-	helper.addItemToCart(item)
-	return HttpResponse("Item will be added: "+item)
+	ensureSessionCart(request.session)
+	request.session[CART_SESSION_NAME][item] = 1
+	request.session.modified = True
+	return HttpResponseRedirect(reverse('cart:index'))
 
 def remove(request, item):
 	return HttpResponse("Item will be removed: "+item)
 
 def quantity(request, item, count):
 	return HttpResponse("Item count will be updated: "+item+"*"+count)
+
+def ensureSessionCart(session):
+	if CART_SESSION_NAME not in session:
+		session[CART_SESSION_NAME] = dict()

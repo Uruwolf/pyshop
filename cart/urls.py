@@ -21,8 +21,8 @@ from django.conf.urls.defaults import *
 from products.models import Catergory, Product
 
 urlpatterns = patterns('cart.views',
-	(r'^$', 'index'),
-	(r'^add/(?P<item>\d+)$', 'add'),
-	(r'^remove/(?P<item>\d+)$', 'remove'),
-	(r'^quantity/(?P<item>\d+)/(?P<count>\d+)$', 'quantity'),
+	url(r'^$', 'index', name='index'),
+	url(r'^add/(?P<item>\d+)$', 'add', name='add-item'),
+	url(r'^remove/(?P<item>\d+)$', 'remove', name='remove-item'),
+	url(r'^quantity/(?P<item>\d+)/(?P<count>\d+)$', 'quantity', name='update-item'),
 )
