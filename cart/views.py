@@ -21,9 +21,25 @@ Copyright (c) Steve "Uru" West 2012
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from settings import CART_SESSION_NAME
+from products.models import Product
+from django.template import Context, loader
 
 def index(request):
-	return HttpResponse("Coming soon")
+	ensureSessionCart(request.session)
+
+	product_list = []
+	#Loop through and build a list of products
+	for product in request.session[CART_SESSION_NAME].keys():
+		p = Product.objects.get(pk=product)
+		#Hijack the model for the quantity in the basket
+		p.quantity = request.session[CART_SESSION_NAME][product]
+		product_list.append(p)
+
+	c = Context({
+			'product_list': product_list
+	})
+
+	return HttpResponse(loader.get_template('cart/cart.html').render(c))
 
 def add(request, item):
 	ensureSessionCart(request.session)

@@ -1,0 +1,9 @@
+{% if product_list %}
+	<ul>
+	{% for product in product_list %}
+	<li>{{ product.name }} - {{ product.quantity }}</li>
+	{% endfor %}
+	</ul>
+{% else %}
+Your cart is empty :(
+{% endif %}
