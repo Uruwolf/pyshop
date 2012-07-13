@@ -18,11 +18,12 @@ Copyright (c) Steve "Uru" West 2012
 '''
 
 
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from django.core.urlresolvers import reverse
 from settings import CART_SESSION_NAME
 from products.models import Product
 from django.template import Context, loader
+from django.shortcuts import redirect
 
 def index(request):
 	ensureSessionCart(request.session)
@@ -45,10 +46,13 @@ def add(request, item):
 	ensureSessionCart(request.session)
 	request.session[CART_SESSION_NAME][item] = 1
 	request.session.modified = True
-	return HttpResponseRedirect(reverse('cart:index'))
+	return redirect('cart:index')
 
 def remove(request, item):
-	return HttpResponse("Item will be removed: "+item)
+	ensureSessionCart(request.session)
+	del request.session[CART_SESSION_NAME][item]
+	request.session.modified = True
+	return redirect('cart:index')
 
 def ensureSessionCart(session):
 	if CART_SESSION_NAME not in session:
