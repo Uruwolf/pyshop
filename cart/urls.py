@@ -24,5 +24,4 @@ urlpatterns = patterns('cart.views',
 	url(r'^$', 'index', name='index'),
 	url(r'^add/(?P<item>\d+)$', 'add', name='add-item'),
 	url(r'^remove/(?P<item>\d+)$', 'remove', name='remove-item'),
-	url(r'^quantity/(?P<item>\d+)/(?P<count>\d+)$', 'quantity', name='update-item'),
 )
