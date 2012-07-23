@@ -37,7 +37,7 @@ class Order(models.Model):
 	)
 	order_status = models.SmallIntegerField(choices=ORDER_STATUS_CODES)
 	order_date = models.DateField(auto_now_add=True)
-	name = models.CharField()
+	name = models.CharField(max_length=100)
 	address = models.TextField()
 	phone = models.CharField(max_length=16)
 	email = models.EmailField()
@@ -45,3 +45,21 @@ class Order(models.Model):
 	def __unicode__(self):
 		'''Returns the order ID'''
 		return self.id
+
+class OrderProduct(models.Model):
+	'''Contains information about a product in an order
+	
+	order = The order that this is part of
+	name = The name of the product
+	unit_price = Cost per unit
+	product = Orrignal product
+	quantity = Number of units sold'''
+	order = models.ForeignKey(Order)
+	name = models.CharField(max_length=200)
+	unit_price = models.DecimalField(max_digits=10, decimal_places=2)
+	product = models.BigIntegerField()
+	quantity = models.BigIntegerField()
+
+	def __unicode__(self):
+		'''Returns a more human readable represntation'''
+		return self.name
